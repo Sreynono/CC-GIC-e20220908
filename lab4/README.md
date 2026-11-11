@@ -59,11 +59,11 @@ Copy this template to `cc-lab-YOUR_ID/lab4/README.md` in your own repository. Fo
 3. The NAT Gateway is placed in the public subnet because it needs access to the Internet Gateway to forward internet traffic. The NAT Gateway allows instances in private subnets to access the internet without exposing their private IP addresses. If the NAT Gateway were placed in the private subnet, it would not have the required direct route to the Internet Gateway for this design.
 4. First: Can someone on the internet open a connection to it? No, not directly. lab4-ec2-02 is in the private subnet and does not have a public IP address. Therefore, someone on the internet cannot directly connect to it using its private IP address. This helps protect the instance from direct inbound internet connections.
 
-Second: Can it download updates? Yes, it can download updates if the private subnet's route table sends internet-bound traffic to the NAT Gateway. 
+    Second: Can it download updates? Yes, it can download updates if the private subnet's route table sends internet-bound traffic to the NAT Gateway. 
 
 5. The instances needed LabInstanceProfile because AWS Systems Manager (SSM) requires permission to communicate with and manage EC2 instances.
 
-LabInstanceProfile is an IAM instance profile that provides an IAM role to the EC2 instances. This role includes permissions, commonly through the AmazonSSMManagedInstanceCore policy, allowing the SSM Agent running on the instances to communicate with AWS Systems Manager.
+    LabInstanceProfile is an IAM instance profile that provides an IAM role to the EC2 instances. This role includes permissions, commonly through the AmazonSSMManagedInstanceCore policy, allowing the SSM Agent running on the instances to communicate with AWS Systems Manager.
 
 ## Problems and how I solved them (optional)
 
